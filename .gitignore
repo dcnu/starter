@@ -43,6 +43,7 @@ next-env.d.ts
 # .cursorignore
 # .cursor/
 # .vscode/
+# .claude/
 # CLAUDE.md
 
 # Development (uncomment for template repo)
