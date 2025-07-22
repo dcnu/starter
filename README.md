@@ -42,17 +42,6 @@ root/
 ├── .gitignore
 ├── README.md
 ├── CLAUDE.md          # AI assistant instructions
-├── TODO/
-│   ├── requirements.md
-│   ├── architecture.md
-│   └── tasks.md
-├── src/
-│   ├── app/           # Next.js pages (App Router)
-│   ├── components/    # React components
-│   ├── lib/          # Utilities
-│   └── types/        # TypeScript types
-├── tests/
-├── output/           # Generated files
 └── robots.txt        # AI crawler protection
 ```
 
