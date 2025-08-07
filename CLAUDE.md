@@ -8,11 +8,9 @@ Added memories should be appended to this document, in the end section titled `M
 - Solo developer
 
 ## About You
-
-### Personality
 - Succinct, unemotional
 - No pleasantries, apologies, or compliments
-- No exclamation points
+- No exclamation points or emojis
 
 ### Coding Style
 - **Iterative development**: build incrementally, one service at a time
@@ -27,11 +25,13 @@ Added memories should be appended to this document, in the end section titled `M
 # Project Setup
 
 ## Tech Stack
+Unless specified otherwise, use:
 - **Frontend**: Next.js 15.4+ with App Router, TypeScript, TailwindCSS
+  - **Sometimes:** Vue, Inertia.js
 - **Backend**: Node.js 18+, API routes in Next.js
-- **Database**: Supabase/PostgreSQL (or SQLite for simple projects)
+- **Database**: Supabase, PostgreSQL
 - **Deployment**: Vercel
-- **UI**: shadcn/ui components, Lucide React icons
+- **UI**: extend Tailwind default theme, shadcn/ui components, Lucide React icons
 
 ## Directory Structure
 ```
@@ -41,14 +41,14 @@ root/
 ├── TODO/
 │   ├── requirements.md     # Product overview (never edit)
 │   ├── architecture.md     # Repo overview
-│   └── tasks.md           # Outstanding items
+│   └── tasks.md            # Outstanding items
 ├── src/
-│   ├── app/               # Next.js pages (App Router)
-│   ├── components/        # React components
-│   ├── lib/              # Utilities
-│   └── types/            # TypeScript types
+│   ├── app/                # Next.js pages (App Router)
+│   ├── components/         # React components
+│   ├── lib/                # Utilities
+│   └── types/              # TypeScript types
 ├── tests/
-└── output/               # Generated files
+└── output/                 # Generated files
 ```
 
 ## Setup Process
@@ -140,7 +140,7 @@ TODO*
 - **Jest + React Testing Library** for testing
 
 ## Next.js Specifics
-- App Router only (no Pages Router)
+- App Router only
 - Pre-render pages when possible
 - ISR for frequently updated content
 - Semantic HTML (`main`, `nav`, `section`)
@@ -153,7 +153,7 @@ TODO*
 ## Tailwind CSS
 - Utility-first approach
 - Extract to `globals.css` if reused across multiple components
-- Extend default theme, don't override
+- Extend default theme, don't override unless explicitly given an alternative theme
 - Support dark mode with `darkMode: "class"`
 - Hide scrollbars by default
 - Use responsive breakpoints (`sm`, `md`, `lg`, `xl`, `2xl`)
@@ -192,9 +192,8 @@ TODO*
 ## Code Quality
 - Split long files and functions
 - Comments only for complex logic
-- Remove empty directories after deleting files
 - No inline TODOs or commented code
-- Follow single responsibility principle
+- Remove empty directories after deleting files
 
 * * * * * * * * * * * * * * * * * * * *
 
@@ -210,14 +209,24 @@ TODO*
 ## JavaScript/TypeScript
 - **Components**: `PascalCase` (files and component names)
 - **Utilities**: `camelCase`
-- **API Routes**: `kebab-case`
+- **API routes**: `kebab-case`
+- **Action names**: `kebab-case`
+
+## JSON
+- **Keys:** `camelCase`
+- Use Prettier for formatting
 
 ## Output Files
-Format: `source-Title-date.ext`
+Format: `Source-Title-date.ext`
 - Use `-` as delimiter
 - `PascalCase` for titles
-- `snake_case` for authors/firms
-- `YYMMDD` or `YYYY` for dates
+- `PascalCase` for sources, including authors, firms, or entities
+  - For people, use LastnameFirstname (e.g. SmithJohn)
+- Accepted formats for dates
+  - `YYMMDD` if full date is known
+  - `YYYY-Qn` (e.g. 2025-Q3) for quarterly content
+  - `YYYY-Month` (e.g. 2025-July) if only year and month known
+  - `YYYY` if only year known 
 - Never overwrite without `--force`
 
 * * * * * * * * * * * * * * * * * * * *
@@ -250,3 +259,6 @@ Format: `source-Title-date.ext`
 Use this space for information added in the terminal with a # command.
 
 Do not make any edits above this line.
+
+- When told to address a conflict, fix the conflict
+  - Do not remove code to avoid finding a permanent solution
